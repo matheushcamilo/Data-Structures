@@ -17,11 +17,17 @@ public class Queue {
         head = node;
     }
     Node first(){
-        Node aux = head;
-        while(aux.getRef()!=null){
-            aux = aux.getRef();
+
+        Node aux;
+        if (!this.isEmpty()) {
+            aux = head;
+            while(aux.getRef()!=null){
+                aux = aux.getRef();
+            }
+            return aux;
+        } else {
+            return null;
         }
-        return aux;
     }
 
     Node dequeue() {
