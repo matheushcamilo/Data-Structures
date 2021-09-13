@@ -2,7 +2,7 @@ package com.estruturasdedados.Stack;
 
 public class Node<T>{
     private  T value;
-    private Node ref = null;
+    private Node<T> ref = null;
 
     public Node(T value) {
         this.value = value;

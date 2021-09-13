@@ -2,8 +2,8 @@ package com.estruturasdedados.Queue;
 
 import com.estruturasdedados.Stack.Node;
 
-public class Queue {
-    private Node head;
+public class Queue<T> {
+    private Node<T> head;
 
     public Queue() {
         this.head = null;
@@ -12,7 +12,8 @@ public class Queue {
         return head == null ? true : false;
     }
 
-    void enqueue(Node node) {
+    void enqueue(T valor) {
+        Node<T> node = new Node<>(valor);
         node.setRef(head);
         head = node;
     }
