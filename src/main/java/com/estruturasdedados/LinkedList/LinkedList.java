@@ -42,16 +42,15 @@ public class LinkedList<T> {
     void add(int index, T valor) {
         int cont = 0;
         Node<T> aux;
-        Node<T> aux2;
         Node<T> node = new Node<>(valor);
         if(this.isEmpty()){
             head = node;
             return;
         }else{
-            int count = 0;
+            //Contador precisa começar em 1, pois aux começa adiantado (apontando para head for do while)
+            int count = 1;
             aux = head;
             while(aux.getRef() != null && count < index){
-                aux2 = aux;
                 aux = aux.getRef();
                 count++;
             }
@@ -59,7 +58,9 @@ public class LinkedList<T> {
             aux.setRef(node);
         }
     }
-
+    //Observe-se que, para excluir um nó da lista, basta desvincular sua referência de entrada
+    //Mesmo que ele continue apontando para um nó da lista, mas ninguém aponta para ele
+    //Ele está fora da lista
     public T remove(int index){
         Node<T> nodeToRemove = this.getNode(index);
         if(index == 0){
